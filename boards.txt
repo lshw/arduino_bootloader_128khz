@@ -1,0 +1,16 @@
+#arduino v1.5
+## Arduino Pro or Pro Mini (3.3V, 128kHz) w/ ATmega168
+## -------------------------------------------------
+pro.menu.cpu.atmega168_128k=ATmega168 (5V, 128kHz)
+
+pro.menu.cpu.1atmega168_128k.upload.maximum_size=15872
+pro.menu.cpu.atmega168_128k.upload.maximum_data_size=1024
+pro.menu.cpu.atmega168_128k.upload.speed=4800
+
+pro.menu.cpu.atmega168_128k.bootloader.low_fuses=0xC3
+pro.menu.cpu.atmega168_128k.bootloader.high_fuses=0xFD
+pro.menu.cpu.atmega168_128k.bootloader.extended_fuses=0xFC
+pro.menu.cpu.atmega168_128k.bootloader.file=optiboot/optiboot_atmega168_128k.hex
+
+pro.menu.cpu.atmega168_128k.build.mcu=atmega168
+pro.menu.cpu.atmega168_128k.build.f_cpu=128000L
