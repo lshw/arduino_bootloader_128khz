@@ -189,6 +189,15 @@ atmega168: AVR_FREQ = 16000000L
 atmega168: $(PROGRAM)_atmega168.hex
 atmega168: $(PROGRAM)_atmega168.lst
 
+atmega168_128k: TARGET = atmega168
+atmega168_128k: MCU_TARGET = atmega168
+atmega168_128k: CFLAGS += '-DLED_START_FLASHES=2' '-DBAUD_RATE=4800'
+atmega168_128k: AVR_FREQ = 128000L 
+atmega168_128k: $(PROGRAM)_atmega168_128k.hex
+atmega168_128k: $(PROGRAM)_atmega168_128k.lst
+
+
+
 atmega168_isp: atmega168
 atmega168_isp: TARGET = atmega168
 # 2.7V brownout
