@@ -35,7 +35,7 @@ ISPPORT	   = usb
 ISPSPEED   = -b 115200
 
 MCU_TARGET = atmega168
-LDSECTIONS  = -Wl,--section-start=.text=0x3e00 -Wl,--section-start=.version=0x3ffe
+LDSECTIONS  = -Wl,--section-start=.text=0x3c00 -Wl,--section-start=.version=0x3ffe
 
 # Build environments
 # Start of some ugly makefile-isms to allow optiboot to be built
@@ -130,7 +130,7 @@ virboot328: TARGET = atmega328
 virboot328: MCU_TARGET = atmega328p
 virboot328: CFLAGS += '-DLED_START_FLASHES=3' '-DBAUD_RATE=115200' '-DVIRTUAL_BOOT'
 virboot328: AVR_FREQ = 16000000L
-virboot328: LDSECTIONS  = -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe
+virboot328: LDSECTIONS  = -Wl,--section-start=.text=0x7c00 -Wl,--section-start=.version=0x7ffe
 virboot328: $(PROGRAM)_atmega328.hex
 virboot328: $(PROGRAM)_atmega328.lst
 
@@ -153,7 +153,7 @@ pro20_isp: HFUSE = DD
 # Full swing xtal (20MHz) 258CK/14CK+4.1ms
 pro20_isp: LFUSE = C6
 # 512 byte boot
-pro20_isp: EFUSE = 04
+pro20_isp: EFUSE = FA
 pro20_isp: isp
 
 # 16MHz clocked platforms
@@ -175,7 +175,7 @@ pro16_isp: HFUSE = DD
 # Full swing xtal (20MHz) 258CK/14CK+4.1ms
 pro16_isp: LFUSE = C6
 # 512 byte boot
-pro16_isp: EFUSE = 04
+pro16_isp: EFUSE = FA
 pro16_isp: isp
 
 # Diecimila, Duemilanove with m168, and NG use identical bootloaders
@@ -189,15 +189,6 @@ atmega168: AVR_FREQ = 16000000L
 atmega168: $(PROGRAM)_atmega168.hex
 atmega168: $(PROGRAM)_atmega168.lst
 
-atmega168_128k: TARGET = atmega168
-atmega168_128k: MCU_TARGET = atmega168
-atmega168_128k: CFLAGS += '-DLED_START_FLASHES=2' '-DBAUD_RATE=4800'
-atmega168_128k: AVR_FREQ = 128000L 
-atmega168_128k: $(PROGRAM)_atmega168_128k.hex
-atmega168_128k: $(PROGRAM)_atmega168_128k.lst
-
-
-
 atmega168_isp: atmega168
 atmega168_isp: TARGET = atmega168
 # 2.7V brownout
@@ -205,7 +196,7 @@ atmega168_isp: HFUSE = DD
 # Low power xtal (16MHz) 16KCK/14CK+65ms
 atmega168_isp: LFUSE = FF
 # 512 byte boot
-atmega168_isp: EFUSE = 04
+atmega168_isp: EFUSE = FA
 atmega168_isp: isp
 
 diecimila: TARGET = diecimila
@@ -222,14 +213,14 @@ diecimila_isp: HFUSE = DD
 # Low power xtal (16MHz) 16KCK/14CK+65ms
 diecimila_isp: LFUSE = FF
 # 512 byte boot
-diecimila_isp: EFUSE = 04
+diecimila_isp: EFUSE = FA
 diecimila_isp: isp
 
 atmega328: TARGET = atmega328
 atmega328: MCU_TARGET = atmega328p
 atmega328: CFLAGS += '-DLED_START_FLASHES=3' '-DBAUD_RATE=115200'
 atmega328: AVR_FREQ = 16000000L
-atmega328: LDSECTIONS  = -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe
+atmega328: LDSECTIONS  = -Wl,--section-start=.text=0x7c00 -Wl,--section-start=.version=0x7ffe
 atmega328: $(PROGRAM)_atmega328.hex
 atmega328: $(PROGRAM)_atmega328.lst
 
@@ -239,9 +230,9 @@ atmega328_isp: MCU_TARGET = atmega328p
 # 512 byte boot, SPIEN
 atmega328_isp: HFUSE = DE
 # Low power xtal (16MHz) 16KCK/14CK+65ms
-atmega328_isp: LFUSE = FF
+atmega328_isp: LFUSE = FD
 # 2.7V brownout
-atmega328_isp: EFUSE = 05
+atmega328_isp: EFUSE = FD
 atmega328_isp: isp
 
 # Sanguino has a minimum boot size of 1024 bytes, so enable extra functions
@@ -345,7 +336,7 @@ lilypad_isp: HFUSE = DD
 # Internal 8MHz osc (8MHz) Slow rising power
 lilypad_isp: LFUSE = E2
 # 512 byte boot
-lilypad_isp: EFUSE = 04
+lilypad_isp: EFUSE = FA
 lilypad_isp: isp
 
 lilypad_resonator: TARGET = lilypad_resonator
@@ -362,7 +353,7 @@ lilypad_resonator_isp: HFUSE = DD
 # Full swing xtal (20MHz) 258CK/14CK+4.1ms
 lilypad_resonator_isp: LFUSE = C6
 # 512 byte boot
-lilypad_resonator_isp: EFUSE = 04
+lilypad_resonator_isp: EFUSE = FA
 lilypad_resonator_isp: isp
 
 pro8: TARGET = pro_8MHz
@@ -379,14 +370,14 @@ pro8_isp: HFUSE = DD
 # Full swing xtal (20MHz) 258CK/14CK+4.1ms
 pro8_isp: LFUSE = C6
 # 512 byte boot
-pro8_isp: EFUSE = 04
+pro8_isp: EFUSE = FA
 pro8_isp: isp
 
 atmega328_pro8: TARGET = atmega328_pro_8MHz
 atmega328_pro8: MCU_TARGET = atmega328p
 atmega328_pro8: CFLAGS += '-DLED_START_FLASHES=3' '-DBAUD_RATE=115200'
 atmega328_pro8: AVR_FREQ = 8000000L
-atmega328_pro8: LDSECTIONS = -Wl,--section-start=.text=0x7e00 -Wl,--section-start=.version=0x7ffe
+atmega328_pro8: LDSECTIONS = -Wl,--section-start=.text=0x7c00 -Wl,--section-start=.version=0x7ffe
 atmega328_pro8: $(PROGRAM)_atmega328_pro_8MHz.hex
 atmega328_pro8: $(PROGRAM)_atmega328_pro_8MHz.lst
 
@@ -396,9 +387,9 @@ atmega328_pro8_isp: MCU_TARGET = atmega328p
 # 512 byte boot, SPIEN
 atmega328_pro8_isp: HFUSE = DE
 # Low power xtal (16MHz) 16KCK/14CK+65ms
-atmega328_pro8_isp: LFUSE = FF
+atmega328_pro8_isp: LFUSE = FD
 # 2.7V brownout
-atmega328_pro8_isp: EFUSE = 05
+atmega328_pro8_isp: EFUSE = FD
 atmega328_pro8_isp: isp
 
 # 1MHz clocked platforms
