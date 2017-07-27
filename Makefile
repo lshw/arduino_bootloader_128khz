@@ -181,7 +181,7 @@ pro16_isp: isp
 #LFUSE:43 HFUSE:FD  EFUSE:FA
 atmega168_128k: TARGET = atmega168
 atmega168_128k: MCU_TARGET = atmega168
-atmega168_128k: CFLAGS += '-DLED_START_FLASHES=2' '-DBAUD_RATE=4600'
+atmega168_128k: CFLAGS += '-DLED_START_FLASHES=2' '-DBAUD_RATE=4800'
 atmega168_128k: AVR_FREQ = 128000L 
 atmega168_128k: $(PROGRAM)_atmega168_128k.hex
 atmega168_128k: $(PROGRAM)_atmega168.lst
