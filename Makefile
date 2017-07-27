@@ -178,6 +178,13 @@ pro16_isp: LFUSE = C6
 pro16_isp: EFUSE = FA
 pro16_isp: isp
 
+atmega168_1m: TARGET = atmega168
+atmega168_1m: MCU_TARGET = atmega168
+atmega168_1m: CFLAGS += '-DLED_START_FLASHES=2' '-DBAUD_RATE=9600'
+atmega168_1m: AVR_FREQ = 1000000L 
+atmega168_1m: $(PROGRAM)_atmega168_1m.hex
+atmega168_1m: $(PROGRAM)_atmega168.lst
+
 # Diecimila, Duemilanove with m168, and NG use identical bootloaders
 # Call it "atmega168" for generality and clarity, keep "diecimila" for
 # backward compatibility of makefile
