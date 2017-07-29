@@ -30,3 +30,18 @@ pro.menu.cpu.atmega168_1m.bootloader.file=optiboot/optiboot_atmega168_1m.hex
 
 pro.menu.cpu.atmega168_1m.build.mcu=atmega168
 pro.menu.cpu.atmega168_1m.build.f_cpu=1000000L
+
+## Arduino Pro or Pro Mini (3.3V, 1MHz) w/ ATmega8
+## -------------------------------------------------
+pro.menu.cpu.atmega8=ATmega8
+
+pro.menu.cpu.atmega8.upload.maximum_size=7680
+pro.menu.cpu.atmega8.upload.maximum_data_size=1024
+
+pro.menu.cpu.atmega8.bootloader.low_fuses=0x81
+pro.menu.cpu.atmega8.bootloader.high_fuses=0xfc
+pro.menu.cpu.atmega8.bootloader.extended_fuses=
+pro.menu.cpu.atmega8.bootloader.file=optiboot/optiboot_atmega8_1m.hex
+
+pro.menu.cpu.atmega8.build.mcu=atmega8
+

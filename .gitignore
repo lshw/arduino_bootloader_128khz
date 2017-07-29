@@ -1,3 +1,7 @@
+*.lst
+*.bin
+*.patch
+
 # Prerequisites
 *.d
 
