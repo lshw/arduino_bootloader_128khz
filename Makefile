@@ -404,9 +404,9 @@ lilypad_resonator_isp: LFUSE = C6
 lilypad_resonator_isp: EFUSE = FA
 lilypad_resonator_isp: isp
 
-pro8: TARGET = pro_8MHz
+pro8: TARGET = pro8
 pro8: MCU_TARGET = atmega168
-pro8: CFLAGS += '-DLED_START_FLASHES=3' '-DBAUD_RATE=115200'
+pro8: CFLAGS += '-DLED_START_FLASHES=3' '-DBAUD_RATE=19200'
 pro8: AVR_FREQ = 8000000L
 pro8: $(PROGRAM)_pro_8MHz.hex
 pro8: $(PROGRAM)_pro_8MHz.lst
