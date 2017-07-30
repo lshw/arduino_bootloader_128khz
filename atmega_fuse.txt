@@ -1,6 +1,7 @@
 128K RC atmega168 L:C3 H:FD E:FA  start:3C00 BOD 2.7v
 1Mhz RC atmega168 L:42 H:FD E:FA  start:3C00 BOD 2.7v
 8Mhz RC atmega168 L:C2 H:FD E:FA  start:3C00 BOD 2.7v
+(atmega168 H:FF->noBOD  H:FE->BOD 1.8v)
 
 1Mhz RC atmega8 L:81 H:FC  start:1E00  BOD:2.7v
 
