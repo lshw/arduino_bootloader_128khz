@@ -178,12 +178,12 @@ pro16_isp: LFUSE = C6
 pro16_isp: EFUSE = FA
 pro16_isp: isp
 
-pro8_57600: TARGET = atmega168
-pro8_57600: MCU_TARGET = atmega168
-pro8_57600: CFLAGS += '-DLED_START_FLASHES=2' '-DBAUD_RATE=57600'
-pro8_57600: AVR_FREQ = 8000000L
-pro8_57600: $(PROGRAM)_atmega168_8MHz_57600.hex
-pro8_57600: $(PROGRAM)_atmega168_8MHz_57600.lst
+atmega168_8m: TARGET = atmega168
+atmega168_8m: MCU_TARGET = atmega168
+atmega168_8m: CFLAGS += '-DLED_START_FLASHES=2' '-DBAUD_RATE=19200'
+atmega168_8m: AVR_FREQ = 800000L 
+atmega168_8m: $(PROGRAM)_atmega168_8m.hex
+atmega168_8m: $(PROGRAM)_atmega168_8m.lst
 
 #LFUSE:C3 HFUSE:FD  EFUSE:FA
 atmega168_128k: TARGET = atmega168
@@ -404,7 +404,7 @@ lilypad_resonator_isp: LFUSE = C6
 lilypad_resonator_isp: EFUSE = FA
 lilypad_resonator_isp: isp
 
-pro8: TARGET = pro8
+pro8: TARGET = atmega168
 pro8: MCU_TARGET = atmega168
 pro8: CFLAGS += '-DLED_START_FLASHES=3' '-DBAUD_RATE=19200'
 pro8: AVR_FREQ = 8000000L
