@@ -1,4 +1,35 @@
 #arduino v1.5
+## Arduino Pro or Pro Mini (3.3V, 8MHz 576000) w/ ATmega168
+## -------------------------------------------------
+pro.menu.cpu.atmega168_737=ATmega168 (3.3V, 8MHz,57600)
+
+pro.menu.cpu.atmega168_737.upload.maximum_size=15872
+pro.menu.cpu.atmega168_737.upload.maximum_data_size=1024
+pro.menu.cpu.atmega168_737.upload.speed=57600
+
+pro.menu.cpu.atmega168_737.bootloader.low_fuses=0xEC
+pro.menu.cpu.atmega168_737.bootloader.high_fuses=0xFD
+pro.menu.cpu.atmega168_737.bootloader.extended_fuses=0xFA
+pro.menu.cpu.atmega168_737.bootloader.file=optiboot/optiboot_atmega168_8m_57600.hex
+
+pro.menu.cpu.atmega168_737.build.mcu=atmega168
+pro.menu.cpu.atmega168_737.build.f_cpu=8000000L
+## Arduino Pro or Pro Mini (3.3V, 128kHz) w/ ATmega168
+## -------------------------------------------------
+pro.menu.cpu.atmega168_737=ATmega168 (5V, 128kHz)
+
+pro.menu.cpu.atmega168_737.upload.maximum_size=15872
+pro.menu.cpu.atmega168_737.upload.maximum_data_size=1024
+pro.menu.cpu.atmega168_737.upload.speed=115200
+
+pro.menu.cpu.atmega168_737.bootloader.low_fuses=0xEC
+pro.menu.cpu.atmega168_737.bootloader.high_fuses=0xFD
+pro.menu.cpu.atmega168_737.bootloader.extended_fuses=0xFA
+pro.menu.cpu.atmega168_737.bootloader.file=optiboot/optiboot_atmega168_7.37m.hex
+
+pro.menu.cpu.atmega168_737.build.mcu=atmega168
+pro.menu.cpu.atmega168_737.build.f_cpu=7372800L
+
 ## Arduino Pro or Pro Mini (3.3V, 128kHz) w/ ATmega168
 ## -------------------------------------------------
 pro.menu.cpu.atmega168_128k=ATmega168 (5V, 128kHz)
@@ -46,3 +77,17 @@ atmegang.menu.cpu.atmega8_1m.bootloader.extended_fuses=
 atmegang.menu.cpu.atmega8_1m.bootloader.file=optiboot/optiboot_atmega8_1m.hex
 
 atmegang.menu.cpu.atmega8_1m.build.mcu=atmega8
+##---------------------------------------------
+atmegang.menu.cpu.atmega8_737=ATmega8 7.37Mhz
+
+atmegang.menu.cpu.atmega8_737.upload.maximum_size=7680
+atmegang.menu.cpu.atmega8_737.upload.maximum_data_size=1024
+atmegang.menu.cpu.atmega8_737.upload.speed=115200
+atmegang.menu.cpu.atmega8_737.build.f_cpu=7372800L
+
+atmegang.menu.cpu.atmega8_737.bootloader.low_fuses=0x81
+atmegang.menu.cpu.atmega8_737.bootloader.high_fuses=0xfc
+atmegang.menu.cpu.atmega8_737.bootloader.extended_fuses=
+atmegang.menu.cpu.atmega8_737.bootloader.file=optiboot/optiboot_atmega8_1m.hex
+
+atmegang.menu.cpu.atmega8_737.build.mcu=atmega8

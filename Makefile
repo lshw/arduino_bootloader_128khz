@@ -178,7 +178,14 @@ pro16_isp: LFUSE = C6
 pro16_isp: EFUSE = FA
 pro16_isp: isp
 
-#LFUSE:43 HFUSE:FD  EFUSE:FA
+pro8_57600: TARGET = atmega168
+pro8_57600: MCU_TARGET = atmega168
+pro8_57600: CFLAGS += '-DLED_START_FLASHES=2' '-DBAUD_RATE=57600'
+pro8_57600: AVR_FREQ = 8000000L
+pro8_57600: $(PROGRAM)_atmega168_8MHz_57600.hex
+pro8_57600: $(PROGRAM)_atmega168_8MHz_57600.lst
+
+#LFUSE:C3 HFUSE:FD  EFUSE:FA
 atmega168_128k: TARGET = atmega168
 atmega168_128k: MCU_TARGET = atmega168
 atmega168_128k: CFLAGS += '-DLED_START_FLASHES=2' '-DBAUD_RATE=4800'
@@ -186,13 +193,21 @@ atmega168_128k: AVR_FREQ = 128000L
 atmega168_128k: $(PROGRAM)_atmega168_128k.hex
 atmega168_128k: $(PROGRAM)_atmega168_128k.lst
 
-#LFUSE:5D HFUSE:C5  EFUSE:FA
+#LFUSE:42 HFUSE:FD  EFUSE:FA
 atmega168_1m: TARGET = atmega168
 atmega168_1m: MCU_TARGET = atmega168
 atmega168_1m: CFLAGS += '-DLED_START_FLASHES=2' '-DBAUD_RATE=9600'
 atmega168_1m: AVR_FREQ = 1000000L 
 atmega168_1m: $(PROGRAM)_atmega168_1m.hex
 atmega168_1m: $(PROGRAM)_atmega168_1m.lst
+
+#LFUSE:5D HFUSE:C5  EFUSE:FA
+atmega168_737: TARGET = atmega168
+atmega168_737: MCU_TARGET = atmega168
+atmega168_737: CFLAGS += '-DLED_START_FLASHES=2' '-DBAUD_RATE=115200'
+atmega168_737: AVR_FREQ = 7372800L 
+atmega168_737: $(PROGRAM)_atmega168_7.37m.hex
+atmega168_737: $(PROGRAM)_atmega168_7.37m.lst
 
 # Diecimila, Duemilanove with m168, and NG use identical bootloaders
 # Call it "atmega168" for generality and clarity, keep "diecimila" for
@@ -301,6 +316,14 @@ atmega8_1m: AVR_FREQ = 1000000L
 atmega8_1m: LDSECTIONS  = -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe
 atmega8_1m: $(PROGRAM)_atmega8_1m.hex
 atmega8_1m: $(PROGRAM)_atmega8_1m.lst
+
+atmega8_737: TARGET = atmega8
+atmega8_737: MCU_TARGET = atmega8
+atmega8_737: CFLAGS += '-DLED_START_FLASHES=2' '-DBAUD_RATE=115200'
+atmega8_737: AVR_FREQ = 7372800L 
+atmega8_737: LDSECTIONS  = -Wl,--section-start=.text=0x1e00 -Wl,--section-start=.version=0x1ffe
+atmega8_737: $(PROGRAM)_atmega8_7.37m.hex
+atmega8_737: $(PROGRAM)_atmega8_7.37m.lst
 
 
 atmega8: TARGET = atmega8
