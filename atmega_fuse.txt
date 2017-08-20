@@ -8,3 +8,5 @@
 7.37Mhz OC atmega8 L:87 H:FC  start:1E00  BOD:2.7v
 
 http://www.engbedded.com/fusecalc/
+
+7.37Mhz OC atmega328 L:EC H:DD E:FF  nobod start:3E00cp a	 root@

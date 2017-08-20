@@ -181,7 +181,7 @@ pro16_isp: isp
 atmega168_8m: TARGET = atmega168
 atmega168_8m: MCU_TARGET = atmega168
 atmega168_8m: CFLAGS += '-DLED_START_FLASHES=2' '-DBAUD_RATE=19200'
-atmega168_8m: AVR_FREQ = 800000L 
+atmega168_8m: AVR_FREQ = 8000000L 
 atmega168_8m: $(PROGRAM)_atmega168_8m.hex
 atmega168_8m: $(PROGRAM)_atmega168_8m.lst
 
@@ -406,7 +406,7 @@ lilypad_resonator_isp: isp
 
 pro8: TARGET = atmega168
 pro8: MCU_TARGET = atmega168
-pro8: CFLAGS += '-DLED_START_FLASHES=3' '-DBAUD_RATE=19200'
+pro8: CFLAGS += '-DLED_START_FLASHES=3' '-DBAUD_RATE=57600'
 pro8: AVR_FREQ = 8000000L
 pro8: $(PROGRAM)_pro_8MHz.hex
 pro8: $(PROGRAM)_pro_8MHz.lst
@@ -428,6 +428,14 @@ atmega328_pro8: AVR_FREQ = 8000000L
 atmega328_pro8: LDSECTIONS = -Wl,--section-start=.text=0x7c00 -Wl,--section-start=.version=0x7ffe
 atmega328_pro8: $(PROGRAM)_atmega328_pro_8MHz.hex
 atmega328_pro8: $(PROGRAM)_atmega328_pro_8MHz.lst
+
+atmega328_pro737: TARGET = atmega328_pro_8MHz
+atmega328_pro737: MCU_TARGET = atmega328p
+atmega328_pro737: CFLAGS += '-DLED_START_FLASHES=3' '-DBAUD_RATE=115200'
+atmega328_pro737: AVR_FREQ = 7372800L
+atmega328_pro737: LDSECTIONS = -Wl,--section-start=.text=0x7c00 -Wl,--section-start=.version=0x7ffe
+atmega328_pro737: $(PROGRAM)_atmega328_pro_7.37m.hex
+atmega328_pro737: $(PROGRAM)_atmega328_pro_7.37m.lst
 
 atmega328_pro8_isp: atmega328_pro8
 atmega328_pro8_isp: TARGET = atmega328_pro_8MHz
